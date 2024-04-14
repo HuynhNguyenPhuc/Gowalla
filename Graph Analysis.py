@@ -79,8 +79,8 @@ def getTourist(df):
     # Add a column to calculate the cumulative sum of the newSegment column
     df_sample = df_sample.withColumn("segment", F.sum("newSegment").over(window_spec))
 
-    tourists = df_sample.groupBy("user", "segment").agg(F.F.collect_list(F.struct("cluster", "latitude", "longitude", "checkinTime")).alias("tourists"))
-    tourists = tourists.groupBy("user").agg(F.F.collect_list("tourists").alias("tourists"))
+    tourists = df_sample.groupBy("user", "segment").agg(F.collect_list(F.struct("cluster", "latitude", "longitude", "checkinTime")).alias("tourists"))
+    tourists = tourists.groupBy("user").agg(F.collect_list("tourists").alias("tourists"))
 
     return tourists
 

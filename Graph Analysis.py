@@ -40,7 +40,7 @@ def saveGraph(vertices, edges):
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC # Import dataset (Done)
+# MAGIC # Import dataset
 
 # COMMAND ----------
 
@@ -60,7 +60,7 @@ df.write.format("delta").mode("overwrite").option("overwriteSchema", "true").sav
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC # Graph Modeling (Done)
+# MAGIC # Graph Modeling
 
 # COMMAND ----------
 
@@ -128,7 +128,7 @@ location_graph = GraphFrame(vertices, edges)
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## Pagerank (Done)
+# MAGIC ## Pagerank
 
 # COMMAND ----------
 
@@ -140,7 +140,7 @@ pagerank_results.edges.withColumnRenamed("weight", "pagerank").write.format("del
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## Number of points in a cluster (Done)
+# MAGIC ## Number of points in a cluster
 
 # COMMAND ----------
 
@@ -167,7 +167,7 @@ saveGraph(vertices, edges)
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## Label Propagation Algorithm (Done)
+# MAGIC ## Label Propagation Algorithm
 
 # COMMAND ----------
 
@@ -189,12 +189,12 @@ saveGraph(vertices, edges)
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## Popular Tour Route (Done)
+# MAGIC ## Popular Tour Route
 
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Transition Probabilty Matrix (Done)
+# MAGIC ### Transition Probabilty Matrix
 
 # COMMAND ----------
 
@@ -213,7 +213,7 @@ saveGraph(vertices, edges)
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Markov Clustering (Done)
+# MAGIC ### Markov Clustering
 
 # COMMAND ----------
 
@@ -476,11 +476,3 @@ results = runScaledMCL(matrix = edges_test.select("src", "dst", "normal"), itera
 # COMMAND ----------
 
 results.write.format("delta").mode("overwrite").option("overwriteSchema", "true").saveAsTable("gowalla_mcl")
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-

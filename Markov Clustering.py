@@ -28,8 +28,8 @@ vertices, edges = loadGraph()
 
 # COMMAND ----------
 
-vertices_test = vertices.filter(col("id") < 10000)
-edges_test = edges.filter((col("src") < 10000) & (col("dst") < 10000))
+vertices_test = vertices.filter(col("id") < 100)
+edges_test = edges.filter((col("src") < 100) & (col("dst") < 100))
 
 # COMMAND ----------
 
@@ -278,7 +278,7 @@ def run_scaled_mcl(matrix, expansion=2, inflation=2, loop_value=1, iterations=10
 
 # COMMAND ----------
 
-results = run_scaled_mcl(matrix = edges_test.select("src", "dst", "normal"), iterations= 1)
+results = run_scaled_mcl(matrix = edges_test.select("src", "dst", "normal"), iterations = 5)
 
 # COMMAND ----------
 
@@ -286,13 +286,4 @@ display(results)
 
 # COMMAND ----------
 
-results.write.format("delta").mode("overwrite").option("overwriteSchema", "true").saveAsTable("gowalla_mcl")
-
-# COMMAND ----------
-
-# MAGIC %md
-# MAGIC # Application
-
-# COMMAND ----------
-
-
+# results.write.format("delta").mode("overwrite").option("overwriteSchema", "true").saveAsTable("gowalla_mcl")

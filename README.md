@@ -21,15 +21,21 @@ In this project, we use the Gowalla dataset from Stanford Network Analysis Proje
 ## Some results
 
 ![Visualize the graph using Gephi](results/graph.png)
+
 *Figure 1: The result graph with 1268281 vertices and 5150236 edges*
+
 
 ![Pagerank result](results/pagerank.png)
 *Figure 2: Six locations with the highest Pagerank scores*
 
+
 ![LPA result](results/lpa.png)
+
 *Figure 3: Five communities with the highest number of vertices*
 
+
 ![MCL result](results/mcl.png)
+
 *Figure 4: The popular route graph*
 
 ## Future plan
